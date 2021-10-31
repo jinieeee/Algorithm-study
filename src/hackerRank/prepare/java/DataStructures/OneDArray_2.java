@@ -61,7 +61,7 @@ public class OneDArray_2 {
 	            
 	    game[i] = 1; // marks as visited
 
-	    // Recursive Cases
+	    // 재귀함수
 	    return isSolvable(leap, game, i + leap) || 
 	           isSolvable(leap, game, i + 1) || 
 	           isSolvable(leap, game, i - 1);
