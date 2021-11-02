@@ -22,6 +22,7 @@ public class NumberLineJumps {
 //		}
 
 //		방법2. 성공
+//		- x1과 x2가 같은지 먼저 판별해야 함
 //		while(true) {
 //			if(x1 == x2) {
 //				return "YES";
