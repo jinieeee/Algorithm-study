@@ -41,10 +41,23 @@ public class NumberLineJumps {
 		}
 		return result;
 		
-		
+//		result = "NO";
+//		int num1 = x1 - x2; // x1 < x2
+//		int num2 = v2 - v1; // 항상 음수여야 성립하기 때문에 v2 < v1
+//		
+//		if(v2 < v1) {
+//			double test1 = num1 / num2;
+//			int test2  = (int)test1;
+//			
+//			if(test1 == test2 && test1 > 0) {
+//				result = "YES";
+//			}			
+//		}
+//		return result;
+
 	}
 
 	public static void main(String[] args) {
-		System.out.println(kangaroo(43, 2, 70, 2));
+		System.out.println(kangaroo(0, 8, 5, 2));
 	}
 }

@@ -1,5 +1,6 @@
 package hackerRank.Algorithms.Implementation;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class AppleAndOrange {
@@ -22,5 +23,8 @@ public class AppleAndOrange {
 	    System.out.println(nResult);
 	}
 
+	public static void main(String[] args) {
+		countApplesAndOranges(7, 11, 5, 15, Arrays.asList(new Integer[] {-2, 2}), Arrays.asList(new Integer[] {5, -6}));
+	}
 
 }
