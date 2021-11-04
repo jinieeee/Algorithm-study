@@ -12,7 +12,7 @@ public class StrongPassword {
         String[] regexes = new String[] { "0-9",
                                           "a-z",
                                           "A-Z",
-                                          "!@#$%^&*()+-" };
+                                          "-!@#$%^&*()+" };
         for(String regex : regexes) {
             result += password.matches(".*[" + regex + "].*")? 0: 1;
             System.out.println(regex + ", " + result);
