@@ -1,7 +1,8 @@
 package hackerRank.Algorithms.Implementation;
 
 public class SherlockAndSquares {
-
+	
+	// a와 b 사이의 제곱정수 개수
 	public static void main(String[] args) {
 		System.out.println(squares(3, 9));
 	}
