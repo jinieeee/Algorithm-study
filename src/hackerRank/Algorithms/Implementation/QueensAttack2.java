@@ -23,14 +23,14 @@ public class QueensAttack2 {
 		
 		// time limit exceeded 발생 -> 비효율적
 		// 모든 상황을 반복문으로 돌리는 방법
-		result += ready(r_q - 1, c_q - 1, "--", n, obstacles); 	// row - 1, col - 1
-		result += ready(r_q, c_q - 1, "0-", n, obstacles);		// row 제자리, col - 1
-		result += ready(r_q + 1, c_q - 1, "+-", n, obstacles);	// row + 1, col - 1
-		result += ready(r_q + 1, c_q, "+0", n, obstacles);		// row + 1, col 제자리
-		result += ready(r_q + 1, c_q + 1, "++", n, obstacles);	// row + 1, col + 1
-		result += ready(r_q, c_q + 1, "0+", n, obstacles);		// row 제자리, col + 1
-		result += ready(r_q - 1, c_q + 1, "-+", n, obstacles);	// row - 1, col + 1
-		result += ready(r_q - 1, c_q, "-0", n, obstacles);		// row - 1, col 제자리
+		result += ready(r_q, c_q, "--", n, obstacles); 	// row - 1, col - 1
+		result += ready(r_q, c_q, "0-", n, obstacles);	// row 제자리, col - 1
+		result += ready(r_q, c_q, "+-", n, obstacles);	// row + 1, col - 1
+		result += ready(r_q, c_q, "+0", n, obstacles);	// row + 1, col 제자리
+		result += ready(r_q, c_q, "++", n, obstacles);	// row + 1, col + 1
+		result += ready(r_q, c_q, "0+", n, obstacles);	// row 제자리, col + 1
+		result += ready(r_q, c_q, "-+", n, obstacles);	// row - 1, col + 1
+		result += ready(r_q, c_q, "-0", n, obstacles);	// row - 1, col 제자리
 		return result;
     }
 	
@@ -121,7 +121,7 @@ public class QueensAttack2 {
 			break;
 		};
 		
-        return result;
+        return result - 1;
 	}
 	
 	private static boolean countAttack(int i, int j, List<List<Integer>> obstacles) {
