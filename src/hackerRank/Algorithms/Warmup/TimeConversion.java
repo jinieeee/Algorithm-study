@@ -1,6 +1,8 @@
 package hackerRank.Algorithms.Warmup;
 
-import java.util.GregorianCalendar;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class TimeConversion {
 
@@ -28,5 +30,24 @@ public class TimeConversion {
 		}
 		
 		return result.substring(0, 8);
+//		String result = "";
+//		String a = s.substring(8);
+//		String b = " " + a;
+//		a = s.replace(a, b);
+//		System.out.println(a);
+//		
+//		SimpleDateFormat fromFormat = new SimpleDateFormat("hh:mm:ss a");
+//		SimpleDateFormat toFormat = new SimpleDateFormat("HH:mm:ss");
+//		
+//		try {
+//			Date fromDate = fromFormat.parse(a);
+//			System.out.println(fromDate);
+//			String toDate = toFormat.format(fromDate);
+//			result = toDate.toString();
+//		} catch (ParseException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		return result;
     }
 }
