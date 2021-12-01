@@ -9,16 +9,24 @@ public class perfectString {
 	 * 주어진 문장이 완벽한 문자열이 되기 위해서는 어떤 알파벳이 필요한가? */
 	public static String solution(String sentence) {
         
-        // char[] regex = "abcdefghijklmnopqrstuvwxyz".toCharArray();
         String regex = "abcdefghijklmnopqrstuvwxyz";
+        String newArr = "";
+		char[] result = new char[26];
 		
-        for(char ch : sentence.toCharArray()) {
-        	if(regex.indexOf(ch) != -1) {
-        		regex.replace(ch, '1');
-        	}
-        }
-        System.out.println(regex.toString());
-        return regex;
+		for(char ch : sentence.toCharArray()) {
+			if(regex.indexOf(ch) != -1) {
+				result[regex.indexOf(ch)] = 'Y';
+			}
+		}
+        
+		for(int i = 0; i < regex.length(); i++) {
+			if(result[i] != 'Y') {
+				newArr += regex.charAt(i);
+			}
+		}
+        
+        return newArr;
     }
-
+	// pangram 문제
+	
 }
