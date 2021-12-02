@@ -1,10 +1,8 @@
 package programmers.codingTest;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 public class wonAPrize {
 	/*
@@ -17,6 +15,8 @@ public class wonAPrize {
 		System.out.println(solution(arr));
 	}
 	
+	// 이중 for문 비효율적
+	/*
 	public static int solution(int[] arr) {
         int answer = -1;
 		List<Integer> list = new ArrayList<>();
@@ -24,6 +24,7 @@ public class wonAPrize {
         	list.add(i);
         }
         Map<String, Integer> result = new HashMap<>();
+        
         for(int i = 0; i < list.size() - 1; i++) {
         	for(int j = i + 1; j < list.size(); j++) {
         		if(list.get(i) == list.get(j)) {
@@ -44,4 +45,33 @@ public class wonAPrize {
         
         return answer;
     }
+    */
+	public static int solution(int[] arr) {
+		int answer = -1;
+		int min = 100;
+		
+		int[] arr1 = new int[arr.length];
+		int[] arr2 = new int[arr.length];
+		// arr2는 -1로 모두 초기화
+		Arrays.fill(arr2, -1);
+		
+		for(int i = 0; i < arr.length; i++) {
+			int number = arr[i];
+			if(arr1[number] > 0) {
+				arr2[number] = i - arr1[number];
+				arr1[number] = i;
+			} else {
+				arr1[number] = i;
+			}
+		}
+		System.out.println(Arrays.toString(arr1));
+		System.out.println(Arrays.toString(arr2));
+		for(Integer i : arr2) {
+			if(i != -1) {
+				min = min > i? i: min;
+			}
+		}
+		
+		return (min == 100)? answer: min;
+	}
 }
