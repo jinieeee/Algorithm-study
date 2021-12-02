@@ -55,6 +55,12 @@ public class wonAPrize {
 		// arr2는 -1로 모두 초기화
 		Arrays.fill(arr2, -1);
 		
+		// for문을 한 번만 사용
+		/* arr1 에는 당첨자가 몇 번째에 (index)에 담고 
+		 * arr2 에는 같은 당첨자가 다음으로 당첨되었을 때 몇 번만에 당첨되었는지를 담는다.
+		 * 다음으로 당첨된 간격이 이전보다 작을 때만 arr2의 값을 변경한다 (최소 당첨 간격만 배열에 저장)
+		 * 이 후 arr2의 최소값을 찾는다
+		 * */
 		for(int i = 1; i <= arr.length; i++) {
 			int index = arr[i-1];
 			if(arr1[index] > 0) {
