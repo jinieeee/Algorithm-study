@@ -48,24 +48,29 @@ public class wonAPrize {
     */
 	public static int solution(int[] arr) {
 		int answer = -1;
-		int min = 100;
+		int min = 9999;
 		
 		int[] arr1 = new int[arr.length];
 		int[] arr2 = new int[arr.length];
 		// arr2는 -1로 모두 초기화
 		Arrays.fill(arr2, -1);
 		
-		for(int i = 0; i < arr.length; i++) {
-			int number = arr[i];
-			if(arr1[number] > 0) {
-				arr2[number] = i - arr1[number];
-				arr1[number] = i;
+		for(int i = 1; i <= arr.length; i++) {
+			int index = arr[i-1];
+			if(arr1[index] > 0) {
+				if(arr2[index] == -1) {
+					arr2[index] = i - arr1[index];
+					arr1[index] = i;
+				} else if (i - arr1[index] < arr2[index]) {
+					arr2[index] = i - arr1[index];
+					arr1[index] = i;					
+				}
 			} else {
-				arr1[number] = i;
+				arr1[index] = i;
 			}
+			System.out.println(i + "회전 arr1: " + Arrays.toString(arr1));
+			System.out.println(i + "회전 arr2: " + Arrays.toString(arr2));
 		}
-		System.out.println(Arrays.toString(arr1));
-		System.out.println(Arrays.toString(arr2));
 		for(Integer i : arr2) {
 			if(i != -1) {
 				min = min > i? i: min;
