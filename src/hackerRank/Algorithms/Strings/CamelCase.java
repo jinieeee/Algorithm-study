@@ -14,3 +14,8 @@ public class CamelCase {
         return count + 1;
     }
 }
+
+// 대문자인지 판별을 아스키 코드 외에 정규식으로 가능. 혹은 isUpperCase
+// s.length() - s.replaceAll("[A-Z]", "").length() + 1
+// String arr[]= s.split("[A-Z]")
+// s.chars().filter(c -> Character.isUpperCase((char)c)).count()+1
