@@ -21,7 +21,7 @@ public class KNum {
         	int size = j - i;
         	int[] newArr = new int[size];
         	
-        	// for 보다 Arrays.copyOfRange 사용
+        	// for 외에 Arrays.copyOfRange 사용해서 풀 수 있음
         	for(int num = 0; num < size; num++) {
         		// System.out.println(array[i]);
         		newArr[num] = array[i];
