@@ -20,6 +20,8 @@ public class KNum {
         	int k = commands[count][2] - 1;	// index : 2
         	int size = j - i;
         	int[] newArr = new int[size];
+        	
+        	// for 보다 Arrays.copyOfRange 사용
         	for(int num = 0; num < size; num++) {
         		// System.out.println(array[i]);
         		newArr[num] = array[i];
