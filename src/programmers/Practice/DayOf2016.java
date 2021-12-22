@@ -37,7 +37,7 @@ public class DayOf2016 {
 //        	result += months[i];
 //        }
 //        result %= 7;
-        
+         
         return day[result];
     }
 }
