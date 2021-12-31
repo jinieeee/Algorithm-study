@@ -1,15 +1,14 @@
 package programmers.kakao;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Stack;
 
 public class BlindRecruitment {
 
 	public static void main(String[] args) {
-		System.out.println(solution(5, new int[] {2, 1, 2, 6, 2, 4, 3, 3}));
+		System.out.println(Arrays.toString(solution(5, new int[] {2, 1, 2, 6, 2, 4, 3, 3})));
+		System.out.println(Arrays.toString(solution(4, new int[] {4, 4, 4, 4})));
 	}
 
 	// 실패율
@@ -26,8 +25,8 @@ public class BlindRecruitment {
 			int size = stages[i] > N? stages[i] - 1: stages[i];
 			for(int j = 0; j < size; j++) {
 				players[j]++;
-				if(size != N && j == size - 1) {
-					failure[j]++;
+				if(stages[i] <= N && j == size - 1) {
+					failure[j]++;					
 				}
 			}
 		}
@@ -36,16 +35,33 @@ public class BlindRecruitment {
 		// System.out.println(Arrays.toString(failure));
 		
 		Map<Integer, Double> percent = new HashMap<>();
+		double[] fRate = new double[N];
 		for(int i = 0; i < N; i++) {
+			// 추후 정렬을 위해
+			// Map과 배열에 값을 순서대로 같이 담기
 			percent.put(i, players[i] != 0? (double)failure[i]/players[i]: 0);
+			fRate[i] = players[i] != 0? (double)failure[i]/players[i]: 0;
 		}
 		
 		double max = percent.get(0);
 		int[] answer = new int[N];
-		// System.out.println(percent.get(i));
+		int[] test = new int[N];
 		// 정렬(실패율로 내림차순 정렬, 실패율이 같으면 작은 stage 번호가 먼저)
+		// 배열을 내림차순 정렬
+		Arrays.sort(fRate);
 		
-		
-        return null;
+		// Map에서 i번째 배열과 일치하는 값을 찾아 Key값 반환
+		// 내림차순을 위해 역순으로 반복문 실행
+		for(int i = N - 1; i >= 0; i--) {
+			for(int j = 0 ; j < percent.size(); j++) {
+               if(fRate[i] == percent.get(j)) {
+                   answer[Math.abs(i - (N - 1))] = j + 1;
+                   percent.replace(j,-1.0);
+                   break;
+               }
+            }
+		}
+
+        return answer;
     }
 }
