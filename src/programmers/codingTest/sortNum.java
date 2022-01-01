@@ -11,6 +11,7 @@ public class sortNum {
 	
 	/* 제공되는 숫자를 내림차순, 오름차순으로 각각 정렬하면 나오는 숫자의 합을 구하시오
 	 * ex) 1362 -> 1236 + 6321 = 7557 */
+
 	public static int solution(int N) {
 		String num = Integer.toString(N);
 		String[] arr = new String[num.length()];
@@ -31,4 +32,11 @@ public class sortNum {
 
         return Integer.parseInt(asc) + Integer.parseInt(desc);
     }
+
+	
+	// int를 String으로 변환하지 않고 int[] 만들기
+//	public static int solution(int N) {
+//				
+//		return 0;
+//	}
 }
