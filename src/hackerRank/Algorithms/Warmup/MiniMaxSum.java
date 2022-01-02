@@ -6,7 +6,10 @@ import java.util.List;
 public class MiniMaxSum {
 
 	public static void main(String[] args) {
+		long startTime = System.currentTimeMillis();
 		miniMaxSum(Arrays.asList(new Integer[]{256741038, 623958417, 467905213, 714532089, 938071625}));
+		long endTime = System.currentTimeMillis();
+		System.out.println((endTime - startTime));
 	}
 	
 	// 숫자 5개가 들어있는 리스트 arr이 매개변수로 주어진다.
@@ -18,16 +21,19 @@ public class MiniMaxSum {
 	    int min = arr.get(0);
 	    for(int i : arr) {
 	    	total += i;
-	    	if(i > max) {
-	    		max = i;
-	    	} else if(i < min) {
-	    		min = i;
-	    	}
+//	    	if(i > max) {
+//	    		max = i;
+//	    	} else if(i < min) {
+//	    		min = i;
+//	    	}
+	    	// if문으로 처리하지 않고 하는 경우
+	    	max = Math.max(max, i);
+	    	min = Math.min(min, i);
 	    }
 //	    System.out.println(total);
 //	    System.out.println(max);
 //	    System.out.println(min);
 	    
-	    System.out.println((total - max) + " " + (total - min));
+	    System.out.println((total - max) + " " + (total - min));   
     }
 }
