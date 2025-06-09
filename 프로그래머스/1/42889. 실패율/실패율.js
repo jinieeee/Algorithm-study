@@ -13,11 +13,14 @@ function solution(N, stages) {
     }
     
     let players = stages.length;
-    let failure = arr.map((a, i) => {
-        let rates = a / players;
-        players -= a;
-        return [i + 1, rates]
-    });
+    
+    // map => for 사용
+    let failure = [];
+    for(let i = 0; i < N; i++) {
+        let rates = arr[i] / players;
+        players -= arr[i];
+        failure.push([i + 1, rates])
+    }
     
     // 실패율 내림차순 정렬, 실패율이 같으면 작은 번호의 stage 먼저
     return failure.sort((a, b) => b[1] - a[1]).map(value => value[0]);
