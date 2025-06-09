@@ -20,8 +20,5 @@ function solution(N, stages) {
     });
     
     // 실패율 내림차순 정렬, 실패율이 같으면 작은 번호의 stage 먼저
-    return failure.sort((a, b) => {
-        if(a[1] !== b[1]) return b[1] - a[1];
-        else return a[0] - b[0]
-    }).map(value => value[0]);
+    return failure.sort((a, b) => b[1] - a[1]).map(value => value[0]);
 }
