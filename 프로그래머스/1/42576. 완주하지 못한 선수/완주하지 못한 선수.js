@@ -1,17 +1,19 @@
 function solution(participant, completion) {
-    let participantMap = new Map();
+    let obj = {};
     for(let i = 0; i < participant.length; i++) {
-        let pre = participantMap.get(participant[i]);
-        participantMap.set(participant[i], pre ? pre + 1 : 1);
+        if(obj[participant[i]]) {
+            obj[participant[i]] += 1;
+        } else {
+            obj[participant[i]] = 1;
+        }
     }
     
     for(let j = 0; j < completion.length; j++) {
-        const result = participantMap.get(completion[j]);
-        participantMap.set(completion[j], result - 1);
+        obj[completion[j]] -= 1;
     }
     
-    for (const [key, value] of participantMap) {
-        if (value > 0) {
+    for(const key in obj) {
+        if(obj[key] > 0) {
             return key;
         }
     }
